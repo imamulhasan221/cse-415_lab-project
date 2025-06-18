@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.nav_bar-logo{
+    justify-content: center;
+    text-align: center;
+    background-image:url(/assets/image/header-bg.jpg);
+}
+.logo-png{
+    margin-left:70%;
+    border-radius: 50%;
+}
+.head_low{
+    background-color:antiquewhite;
+}
+
+    
