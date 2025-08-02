@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pricing - A1 Event Management</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .pricing-header {
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+    .price-card {
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      background: #fff;
+      transition: transform 0.3s ease;
+    }
+    .price-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    .price-title {
+      font-weight: 700;
+      font-size: 1.75rem;
+      margin-top: 20px;
+    }
+    .price-value {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin: 20px 0;
+    }
+    .price-features {
+      list-style: none;
+      padding: 0;
+    }
+    .price-features li {
+      padding: 8px 0;
+      border-bottom: 1px solid #e7e7e7;
+    }
+    .price-btn {
+      border-radius: 50px;
+      padding: 10px 30px;
+      font-weight: 600;
+    }
+    .most-popular {
+      border: 2px solid #0d6efd;
+    }
+    .most-popular .price-title,
+    .most-popular .price-value {
+      color: #0d6efd;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="pricing-header">
+    <div class="container">
+      <h1>Pricing Plans</h1>
+      <p class="lead">Choose the best package for your event needs.</p>
+    </div>
+  </section>
+
+  <section class="container mb-5">
+    <div class="row g-4 justify-content-center">
+
+      <!-- Basic Plan -->
+      <div class="col-md-4">
+        <div class="price-card p-4 text-center">
+          <h2 class="price-title">Basic</h2>
+          <p class="price-value">$0 <small class="text-muted fs-6">/ day</small></p>
+          <ul class="price-features text-start mb-4">
+            <li>Event Planning Assistance</li>
+            <li>Basic Venue Selection</li>
+            <li>Standard Decorations</li>
+            <li>Customer Support</li>
+          </ul>
+          <button class="btn btn-outline-primary price-btn">Order Now</button>
+        </div>
+      </div>
+
+      <!-- Standard Plan -->
+      <div class="col-md-4">
+        <div class="price-card most-popular p-4 text-center">
+          <h2 class="price-title">Standard</h2>
+          <p class="price-value">$250 <small class="text-muted fs-6">/ day</small></p>
+          <ul class="price-features text-start mb-4">
+            <li>Everything in Basic</li>
+            <li>Premium Venue Selection</li>
+            <li>Customized Decorations</li>
+            <li>Catering Services</li>
+            <li>Dedicated Event Manager</li>
+          </ul>
+          <button class="btn btn-primary price-btn">Order Now</button>
+        </div>
+      </div>
+
+      <!-- Premium Plan -->
+      <div class="col-md-4">
+        <div class="price-card p-4 text-center">
+          <h2 class="price-title">Premium</h2>
+          <p class="price-value">$450 <small class="text-muted fs-6">/ week</small></p>
+          <ul class="price-features text-start mb-4">
+            <li>Everything in Standard</li>
+            <li>Live Entertainment</li>
+            <li>Photography & Videography</li>
+            <li>VIP Guest Management</li>
+            <li>On-site Event Coordination</li>
+          </ul>
+          <button class="btn btn-outline-primary price-btn">Order Now</button>
+        </div>
+      </div>
+
+      <!-- Ultimate Plan -->
+      <div class="col-md-4">
+        <div class="price-card p-4 text-center mt-4 mt-md-0">
+          <h2 class="price-title">Ultimate</h2>
+          <p class="price-value">$750 <small class="text-muted fs-6">/ month</small></p>
+          <ul class="price-features text-start mb-4">
+            <li>Everything in Premium</li>
+            <li>Personalized Event Themes</li>
+            <li>24/7 Support & Concierge</li>
+            <li>Exclusive Venue Booking</li>
+            <li>Full Event Branding</li>
+          </ul>
+          <button class="btn btn-outline-primary price-btn">Order Now</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
