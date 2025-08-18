@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Event Management</title>
+    <title>Register - Event Management</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -101,22 +101,6 @@
             transform: translateY(-2px);
         }
         
-        .remember-forgot {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-        
-        .remember-me {
-            display: flex;
-            align-items: center;
-        }
-        
-        .remember-me input {
-            margin-right: 0.5rem;
-        }
-        
         .auth-footer {
             text-align: center;
             margin-top: 1.5rem;
@@ -156,13 +140,31 @@
             color: var(--danger);
             border: 1px solid rgba(220, 53, 69, 0.3);
         }
+        
+        .password-strength {
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+        
+        .password-strength.weak {
+            color: var(--danger);
+        }
+        
+        .password-strength.medium {
+            color: #ffc107;
+        }
+        
+        .password-strength.strong {
+            color: var(--success);
+        }
     </style>
 </head>
 <body>
     <div class="auth-container">
         <div class="auth-header">
-            <h2>Welcome Back</h2>
-            <p>Please sign in to continue</p>
+            <h2>Create Account</h2>
+            <p>Join us today and start managing your events</p>
         </div>
 
         @if(session('success'))
@@ -179,11 +181,19 @@
             </div>
         @endif
 
-        <form action="{{ route('login') }}" method="POST">
+        <form action="{{ route('register') }}" method="POST">
             @csrf
             <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" class="form-control" value="{{ old('name') }}" required autofocus>
+                @error('name')
+                    <span class="error-message">{{ $message }}</span>
+                @enderror
+            </div>
+            
+            <div class="form-group">
                 <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" class="form-control" value="{{ old('email') }}" required autofocus>
+                <input type="email" id="email" name="email" class="form-control" value="{{ old('email') }}" required>
                 @error('email')
                     <span class="error-message">{{ $message }}</span>
                 @enderror
@@ -192,25 +202,58 @@
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" class="form-control" required>
+                <div id="password-strength" class="password-strength"></div>
                 @error('password')
                     <span class="error-message">{{ $message }}</span>
                 @enderror
             </div>
             
-            <div class="remember-forgot">
-                <div class="remember-me">
-                    <input type="checkbox" id="remember" name="remember">
-                    <label for="remember">Remember me</label>
-                </div>
-                <a href="">Forgot password?</a>
+            <div class="form-group">
+                <label for="password_confirmation">Confirm Password</label>
+                <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" required>
             </div>
             
-            <button type="submit" class="btn">Sign In</button>
+            <button type="submit" class="btn">Sign Up</button>
         </form>
         
         <div class="auth-footer">
-            <p>Don't have an account? <a href="{{ route('register') }}">Sign up</a></p>
+            <p>Already have an account? <a href="{{ route('login') }}">Sign in</a></p>
         </div>
     </div>
+
+    <script>
+        const passwordInput = document.getElementById('password');
+        const passwordStrength = document.getElementById('password-strength');
+        
+        passwordInput.addEventListener('input', function() {
+            const password = this.value;
+            let strength = 0;
+            
+            // Length check
+            if (password.length >= 8) strength++;
+            if (password.length >= 12) strength++;
+            
+            // Character type checks
+            if (/[A-Z]/.test(password)) strength++;
+            if (/[0-9]/.test(password)) strength++;
+            if (/[^A-Za-z0-9]/.test(password)) strength++;
+            
+            // Update strength indicator
+            passwordStrength.textContent = getStrengthText(strength);
+            passwordStrength.className = 'password-strength ' + getStrengthClass(strength);
+        });
+        
+        function getStrengthText(strength) {
+            if (strength <= 2) return 'Weak password';
+            if (strength <= 4) return 'Medium password';
+            return 'Strong password';
+        }
+        
+        function getStrengthClass(strength) {
+            if (strength <= 2) return 'weak';
+            if (strength <= 4) return 'medium';
+            return 'strong';
+        }
+    </script>
 </body>
 </html>

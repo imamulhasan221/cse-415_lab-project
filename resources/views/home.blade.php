@@ -587,8 +587,8 @@
           <div class="has-dropdown">
             <a href="{{ url('/solutions') }}" class="nav-link">Solutions</a>
             <div class="dropdown-menu">
-              <a href="{{ url('/solutions/wedding') }}">Wedding Planning</a>
-              <a href="{{ url('/solutions/corporate') }}">Corporate Events</a>
+              <a href="{{ url('/wedding_planning') }}">Wedding Planning</a>
+              <a href="{{ url('/corporate') }}">Corporate Events</a>
               <a href="{{ url('/solutions/social') }}">Social Gatherings</a>
               <a href="{{ url('/solutions/virtual') }}">Virtual Events</a>
             </div>
